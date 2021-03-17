@@ -20,9 +20,10 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf
-  ndt_omp
   message_generation
 )
+
+#add_dependencies(${PROJECT_NAME} ndt_omp)
 
 set(OpenCV_DIR /work/opencv/build)
 find_package(OpenCV REQUIRED PATHS "/work/opencv/build")
@@ -58,6 +59,8 @@ set( G2O_LIBRARY      "/work/tools/g2o/build_a48f/installation/" )
 
 set( G2O_LIBRARY_DIR  "/work/tools/g2o/build_a48f/installation" )
 set( G2O_LIBRARY_DIRS "/work/tools/g2o/build_a48f/installation" )
+
+set(omp_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/ndt_omp/include")
 
 find_package(CSparse REQUIRED)
 
@@ -191,6 +194,7 @@ include_directories(
         ${CERES_INCLUDE_DIRS}
         ${TENSORRT_INCLUDE_DIR}
         ${CUDA_INCLUDE_DIRS}
+        ${omp_INCLUDE_DIR}
         /work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib/include/
         /work/catkin_ws_ndt/src/localization_ndt/include/localization_ndt/
         /work/catkin_ws_ndt/src/localization_ndt/include/cube_slam/
