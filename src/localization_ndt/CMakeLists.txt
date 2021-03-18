@@ -74,7 +74,8 @@ endif()
 
 
 #add_subdirectory(/work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib)
-include_directories(/work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib/include/)
+#include_directories(/work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib/include/)
+include_directories(/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/GeographicLib/include/)
 include_directories(/work/tools/darknet/include)
 include_directories(/work/catkin_ws_ndt/src/ndt_gpu/include)
 #list(APPEND ALL_TARGET_LIBRARIES libGeographiccc)
@@ -253,7 +254,8 @@ add_dependencies(${PROJECT_NAME}_node
          ${CSPARSE_LIBRARY}
          ${CERES_LIBRARIES}
          ndt_omp
-         /work/catkin_ws_ndt/devel/lib/liblibGeographiccc.so
+         /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/GeographicLib/build/liblibGeographiccc.a
+#         /work/catkin_ws_ndt/devel/lib/liblibGeographiccc.so
          ${G2O_LIBRARY_DIR}/libg2o_core.so
          ${G2O_LIBRARY_DIR}/libg2o_stuff.so
          ${G2O_LIBRARY_DIR}/libg2o_types_sba.so

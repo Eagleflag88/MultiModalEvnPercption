@@ -7,7 +7,13 @@ mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
+cd ../../../../..
 
+cd src/localization_ndt/Thirdparty/GeographicLib
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j8
 cd ../../../../..
 
 catkin_make
