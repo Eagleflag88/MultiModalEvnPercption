@@ -49,6 +49,7 @@ find_library(TENSORRT_INFER_PLUGIN libnvinfer_plugin.so
 ################################################################################
 set(G2O_LIBRARY_DIR  "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/" )
 set(omp_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/ndt_omp/include")
+set(ndt_gpu_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/include")
 
 find_package(CSparse REQUIRED)
 
@@ -180,6 +181,7 @@ include_directories(
         ${TENSORRT_INCLUDE_DIR}
         ${CUDA_INCLUDE_DIRS}
         ${omp_INCLUDE_DIR}
+        ${ndt_gpu_INCLUDE_DIR}
         /work/tools/MultiModalEvnPercption/src/localization_ndt
         /work/tools/MultiModalEvnPercption/src/localization_ndt/Third_party/GeographicLib/include/
         /work/tools/MultiModalEvnPercption/src/localization_ndt/include/localization_ndt/
@@ -219,8 +221,6 @@ add_executable(${PROJECT_NAME}_node
 add_dependencies(${PROJECT_NAME}_node
         ndt_omp
         )
-#/work/tools/hungarian-algorithm-cpp/Hungarian.cpp
-
 
 
 ## Rename C++ executable without prefix
@@ -256,7 +256,7 @@ add_dependencies(${PROJECT_NAME}_node
          ${TENSORRT_INFER}
          ${TENSORRT_INFER_PLUGIN}
          ${CUDA_LIBRARIES}
-         /work/catkin_ws_ndt/devel/lib/libfast_pcl_ndt_gpu.so
+         /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/build/libfast_pcl_ndt_gpu.so
  )
 
 add_executable(talker_test_node src/talker.cpp)
