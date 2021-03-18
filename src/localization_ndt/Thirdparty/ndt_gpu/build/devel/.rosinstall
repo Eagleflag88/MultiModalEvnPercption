@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/build/devel/setup.sh

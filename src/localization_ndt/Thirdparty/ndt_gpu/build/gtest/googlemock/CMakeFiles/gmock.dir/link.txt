@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -std=c++14 -O3 -DNDEBUG -shared -Wl,-soname,libgmock.so -o ../../lib/libgmock.so CMakeFiles/gmock.dir/src/gmock-all.cc.o  -Wl,-rpath,/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/build/lib ../../lib/libgtest.so -lpthread 
