@@ -23,8 +23,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-#add_dependencies(${PROJECT_NAME} ndt_omp)
-
+#find_package(OpenCV 4.4.0 REQUIRED)
 set(OpenCV_DIR /work/opencv/build)
 find_package(OpenCV REQUIRED PATHS "/work/opencv/build")
 
@@ -32,8 +31,6 @@ set(OpenCV_LIB_DIR "/work/opencv/build/lib")
 set(OpenCV_LIB_DIRS "/work/opencv/build/lib")
 
 list( APPEND CMAKE_MODULE_PATH "/work/catkin_ws_ndt/src/localization_ndt/cmake_modules" )
-
-set( G2O_DIR "/work/tools/g2o/build_a48f")
 
 find_package(CUDA REQUIRED)
 
@@ -50,15 +47,16 @@ find_library(TENSORRT_INFER_PLUGIN libnvinfer_plugin.so
         PATH_SUFFIXES lib lib64 lib/x64)
 
 ################################################################################
-set( G2O_INCLUDE_DIR  "/work/tools/g2o/build_a48f/installation/include;/usr/include/eigen3" )
-set( G2O_INCLUDE_DIRS  "/work/tools/g2o/build_a48f/installation/include;/usr/include/eigen3" )
+set( G2O_DIR "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/build/")
+#set( G2O_INCLUDE_DIR  "/work/tools/g2o/build_a48f/installation/include;/usr/include/eigen3" )
+#set( G2O_INCLUDE_DIRS  "/work/tools/g2o/build_a48f/installation/include;/usr/include/eigen3" )
 
-set( G2O_LIBRARIES    "/work/tools/g2o/build_a48f/installation/lib/libg2o_core.so;
-                       /work/tools/g2o/build_a48f/installation/lib/libg2o_stuff.so;" )
-set( G2O_LIBRARY      "/work/tools/g2o/build_a48f/installation/" )
+set( G2O_LIBRARIES    "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/libg2o_core.so;
+                       /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/libg2o_stuff.so;" )
+set( G2O_LIBRARY      "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/build/" )
 
-set( G2O_LIBRARY_DIR  "/work/tools/g2o/build_a48f/installation" )
-set( G2O_LIBRARY_DIRS "/work/tools/g2o/build_a48f/installation" )
+set( G2O_LIBRARY_DIR  "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/" )
+set( G2O_LIBRARY_DIRS "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/" )
 
 set(omp_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/ndt_omp/include")
 
@@ -256,10 +254,10 @@ add_dependencies(${PROJECT_NAME}_node
          ${CERES_LIBRARIES}
          ndt_omp
          /work/catkin_ws_ndt/devel/lib/liblibGeographiccc.so
-         /work/tools/g2o/build_a48f/installation/lib/libg2o_core.so
-         /work/tools/g2o/build_a48f/installation/lib/libg2o_stuff.so
-         /work/tools/g2o/build_a48f/installation/lib/libg2o_types_sba.so
-         /work/tools/g2o/build_a48f/installation/lib/libg2o_csparse_extension.so
+         ${G2O_LIBRARY_DIR}/libg2o_core.so
+         ${G2O_LIBRARY_DIR}/libg2o_stuff.so
+         ${G2O_LIBRARY_DIR}/libg2o_types_sba.so
+         ${G2O_LIBRARY_DIR}/libg2o_csparse_extension.so
          /work/opencv/build/lib/libopencv_core.so
          /work/opencv/build/lib/libopencv_imgproc.so
          /work/opencv/build/lib/libopencv_calib3d.so
