@@ -30,7 +30,7 @@ find_package(OpenCV REQUIRED PATHS "/work/opencv/build")
 set(OpenCV_LIB_DIR "/work/opencv/build/lib")
 set(OpenCV_LIB_DIRS "/work/opencv/build/lib")
 
-list( APPEND CMAKE_MODULE_PATH "/work/catkin_ws_ndt/src/localization_ndt/cmake_modules" )
+list( APPEND CMAKE_MODULE_PATH "/work/tools/MultiModalEvnPercption/src/localization_ndt/cmake_modules" )
 
 find_package(CUDA REQUIRED)
 
@@ -47,17 +47,7 @@ find_library(TENSORRT_INFER_PLUGIN libnvinfer_plugin.so
         PATH_SUFFIXES lib lib64 lib/x64)
 
 ################################################################################
-set( G2O_DIR "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/build/")
-#set( G2O_INCLUDE_DIR  "/work/tools/g2o/build_a48f/installation/include;/usr/include/eigen3" )
-#set( G2O_INCLUDE_DIRS  "/work/tools/g2o/build_a48f/installation/include;/usr/include/eigen3" )
-
-set( G2O_LIBRARIES    "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/libg2o_core.so;
-                       /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/libg2o_stuff.so;" )
-set( G2O_LIBRARY      "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/build/" )
-
-set( G2O_LIBRARY_DIR  "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/" )
-set( G2O_LIBRARY_DIRS "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/" )
-
+set(G2O_LIBRARY_DIR  "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/g2o/lib/" )
 set(omp_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/ndt_omp/include")
 
 find_package(CSparse REQUIRED)
@@ -72,13 +62,9 @@ if(OPENMP_FOUND)
 endif()
 
 
-
-#add_subdirectory(/work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib)
-#include_directories(/work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib/include/)
 include_directories(/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/GeographicLib/include/)
 include_directories(/work/tools/darknet/include)
-include_directories(/work/catkin_ws_ndt/src/ndt_gpu/include)
-#list(APPEND ALL_TARGET_LIBRARIES libGeographiccc)
+include_directories(/work/tools/MultiModalEvnPercption/src/ndt_gpu/include)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -194,9 +180,10 @@ include_directories(
         ${TENSORRT_INCLUDE_DIR}
         ${CUDA_INCLUDE_DIRS}
         ${omp_INCLUDE_DIR}
-        /work/catkin_ws_ndt/src/lidar_localization/third_party/GeographicLib/include/
-        /work/catkin_ws_ndt/src/localization_ndt/include/localization_ndt/
-        /work/catkin_ws_ndt/src/localization_ndt/include/cube_slam/
+        /work/tools/MultiModalEvnPercption/src/localization_ndt
+        /work/tools/MultiModalEvnPercption/src/localization_ndt/Third_party/GeographicLib/include/
+        /work/tools/MultiModalEvnPercption/src/localization_ndt/include/localization_ndt/
+        /work/tools/MultiModalEvnPercption/src/localization_ndt/include/cube_slam/
 )
 
 
@@ -250,12 +237,10 @@ add_dependencies(${PROJECT_NAME}_node
  target_link_libraries(${PROJECT_NAME}_node
          ${catkin_LIBRARIES}
          ${OpenMP_LIBS}
-#         ${OpenCV_LIBS}
          ${CSPARSE_LIBRARY}
          ${CERES_LIBRARIES}
          ndt_omp
          /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/GeographicLib/build/liblibGeographiccc.a
-#         /work/catkin_ws_ndt/devel/lib/liblibGeographiccc.so
          ${G2O_LIBRARY_DIR}/libg2o_core.so
          ${G2O_LIBRARY_DIR}/libg2o_stuff.so
          ${G2O_LIBRARY_DIR}/libg2o_types_sba.so
