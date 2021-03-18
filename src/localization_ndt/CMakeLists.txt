@@ -63,7 +63,7 @@ endif()
 
 
 include_directories(/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/GeographicLib/include/)
-include_directories(/work/tools/darknet/include)
+include_directories(/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/include)
 include_directories(/work/tools/MultiModalEvnPercption/src/ndt_gpu/include)
 
 ## System dependencies are found with CMake's conventions
@@ -252,7 +252,7 @@ add_dependencies(${PROJECT_NAME}_node
          /work/opencv/build/lib/libopencv_features2d.so
          /work/opencv/build/lib/libopencv_video.so
          /work/opencv/build/lib/libopencv_imgcodecs.so
-         /work/tools/darknet/libdarknet.so
+         /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/libdarknet.so
          ${TENSORRT_INFER}
          ${TENSORRT_INFER_PLUGIN}
          ${CUDA_LIBRARIES}
