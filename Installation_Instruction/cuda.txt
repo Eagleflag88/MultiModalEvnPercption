@@ -1,0 +1,41 @@
+//////////////////////////////////////////////////////////////////////////////////////ubuntu 20.04 cuda11.0.1///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+sudo dpkg -i cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
+
+sudo apt-key add /var/cuda-repo-ubuntu1804-11-0-local/7fa2af80.pub
+
+sudo apt install cuda-toolkit-11-0
+
+reboot
+
+% Verification for nvidia driver + cuda
+nvidia-smi
+
+cd  /usr/local/cuda-11/samples/1_Utilities/deviceQuery
+
+////////////////////////////////////////////////////////////////////////////////////// Ubuntu 20.04 cudnn 8 ///////////////////////////////////////////////////////////////////////////////////////
+
+
+Install cudnn
+
+tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+
+Copy the following files into the CUDA Toolkit directory, and change the file permissions.
+
+$ sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.0/include
+ sudo cp cuda/include/cudnn_version.h /usr/local/cuda-11.0/include
+$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+$ sudo chmod a+r /usr/local/cuda-11.0/include/cudnn*.h /usr/local/cuda-11.0/lib64/libcudnn*
+
+
+
+
+
+
+
+
+
+
+
