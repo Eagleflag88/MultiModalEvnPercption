@@ -1,20 +1,19 @@
 # MultiModalEvnPercption
 
-# Hardware Setup
-Ubuntu 20.04 \
-CPU: AMD R7 4800h\
-GPU: NVIDIA GTX 1650
+A ROS-Based Experimental Platform For Multi Modal Simultaneous Localization And Mapping
 
-# Software Dependencies
+For the purpose of studying and research in the field of SLAM, based on the infrastructure of ROS, this Repo provide a software platform 
+
+# Dependencies
 
 ## Basic Software Environment
-ROS: Noetic\
-OpenCV: 4.4.0 (For Compatibility with Cuda 11), Consult the Installation Instruction\
-Opencv_Contrib：same version as OpenCV\
-OpenMP:\
-``
-sudo apt install libomp-dev
-``
+Ubuntu 20.04 \
+ROS1 Noetic\
+OpenCV/Opencv_Contrib: 4.4.0 (For Compatibility with Cuda 11), Consult the Installation Instruction\
+OpenMP:
+```
+sudo apt install libomp-dev    
+```
 
 ## DL Based Environment Perception
 Cuda: 11: Consult the Installation Instruction\
@@ -29,7 +28,7 @@ Eigen 3:
 sudo apt install libeigen3-dev
 ```
 g2o: Comes with the Repo, github commit a48ff8c\
-GeographicLib: A library dealing with Comes with the Repo
+Geographic_Lib: A library dealing with Comes with the Repo
 
 # Building the ROS Package
 
