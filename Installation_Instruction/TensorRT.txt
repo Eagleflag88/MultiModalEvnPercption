@@ -9,7 +9,7 @@ Install pycuda
 Install onnx
 conda install -c conda-forge onnx python=3.7
 
-//Download TensorRT 7.0
+//Download TensorRT 7.1
 
 //tar
 
@@ -21,7 +21,7 @@ source .bash.rc
 
 Activate conda env pytorch1.2
 
-cd TensorRT-7..1.3.4/python
+cd TensorRT-7.1.3.4/python
 pip install tensorrt-7.1.3.4-cp37-none-linux_x86_64.whl
 
 cd TensorRT-7.1.3.4/uff

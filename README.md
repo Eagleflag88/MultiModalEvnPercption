@@ -10,8 +10,11 @@ GPU: NVIDIA GTX 1650
 ## Basic Software Environment
 ROS: Noetic\
 OpenCV: 4.4.0 (For Compatibility with Cuda 11), Consult the Installation Instruction\
-opencv_contrib：same version as OpenCV\
-OpenMP: sudo apt install libomp-dev
+Opencv_Contrib：same version as OpenCV\
+OpenMP:\
+``
+sudo apt install libomp-dev
+``
 
 ## DL Based Environment Perception
 Cuda: 11: Consult the Installation Instruction\
@@ -21,16 +24,21 @@ Darknet For Yolo: Consult the Installation Instruction
 
 ## SLAM Related
 Ceres: Consult the Installation Instruction; SuiteSparse and CXSparse included \
-Eigen 3: sudo apt-get install libeigen3-dev\
+Eigen 3:
+```
+sudo apt install libeigen3-dev
+```
 g2o: Comes with the Repo, github commit a48ff8c\
-GeographicLib: Comes with the Repo
+GeographicLib: A library dealing with Comes with the Repo
 
 # Building the ROS Package
 
 ## Clone the Repo
+```
 git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
-
+```
 ## Build the Ros Package
+```
 ./build.sh
-
+```
 # Launch and Run
