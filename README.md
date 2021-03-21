@@ -1,6 +1,6 @@
 # MultiModalEvnPercption
 
-A ROS-Based Experimental Platform For Multi Modal Simultaneous Localization And Mapping
+A ROS-Based Experimental Software Platform For Multi-Modal Simultaneous Localization And Mapping
 
 For the purpose of studying and research in the field of SLAM, based on the infrastructure of ROS, this Repo provide a software platform 
 
@@ -15,7 +15,7 @@ OpenMP:
 sudo apt install libomp-dev    
 ```
 
-## DL Based Environment Perception
+## Software for DL Based Environment Perception
 Cuda: 11: Consult the Installation Instruction\
 Cudnn: 8: Consult the Installation Instruction\
 TensorRT: Consult the Installation Instruction\

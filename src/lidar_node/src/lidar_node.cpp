@@ -47,7 +47,7 @@ static void PointCloud_Callback(const sensor_msgs::PointCloud2 curr_scan_msg)
 int main(int argc, char **argv)
 {
 
-    ros::init(argc, argv, "gnss_node");
+    ros::init(argc, argv, "lidar_node");
     ros::NodeHandle nh;
     // Register the Subscriber
     // todo:Add a parameter loading class
