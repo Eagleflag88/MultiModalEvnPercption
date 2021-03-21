@@ -27,5 +27,12 @@ cd src/localization_ndt/Thirdparty/darknet
 make
 cd ../../../..
 
+cd src/gnss_node/thirdparty/GeographicLib
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j8
+cd ../../../../..
+
 catkin_make
 
