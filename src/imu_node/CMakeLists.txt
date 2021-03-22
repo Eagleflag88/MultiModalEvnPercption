@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(cam_node)
+project(imu_node)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -9,7 +9,6 @@ project(cam_node)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
         cv_bridge
-        image_transport
         nav_msgs
         pcl_conversions
         pcl_ros
@@ -112,7 +111,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES cam_node
+        LIBRARIES imu_node
         CATKIN_DEPENDS cv_bridge nav_msgs pcl_conversions pcl_ros roscpp rospy std_msgs tf message_runtime
         DEPENDS system_lib
 )
@@ -125,13 +124,13 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
         include
-        /work/tools/MultiModalEvnPercption/src/cam_node/include
+        /work/tools/MultiModalEvnPercption/src/imu_node/include
         ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/cam_node.cpp
+#   src/${PROJECT_NAME}/imu_node.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -142,9 +141,9 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(cam_node
-        src/cam_node.cpp
-        src/cam_frame.cpp)
+add_executable(imu_node
+        src/imu_node.cpp
+        src/imu_frame.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -157,7 +156,7 @@ add_executable(cam_node
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(cam_node
+target_link_libraries(imu_node
         ${catkin_LIBRARIES}
         )
 
@@ -208,7 +207,7 @@ target_link_libraries(cam_node
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_cam_node.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_imu_node.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
