@@ -13,6 +13,15 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
+#include <nav_msgs/Odometry.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
+
+//#include "yolo_v2_class.hpp"
+#include "object_det.h"
+#include "NvInfer.h"
+#include "NvInferRuntimeCommon.h"
+#include "cuda_runtime.h"
+
 
 class cam_frame
 {

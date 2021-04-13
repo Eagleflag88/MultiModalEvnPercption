@@ -11,6 +11,8 @@
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
 
+#include "cam_frame.h"
+
 
 // Declaration of Publishers
 
@@ -26,15 +28,11 @@ static ros::Subscriber image_sub;
 static void IMG_Callback(const sensor_msgs::ImageConstPtr& cam_img_msg_ptr)
 {
     cv_bridge::CvImagePtr cam_cv_ptr = cv_bridge::toCvCopy(cam_img_msg_ptr);
-    ROS_INFO("Get a image from camera");
+    ROS_INFO("Get a image from cam_node");
     std::cout << "Number of column is " << cam_cv_ptr->image.cols << std::endl;
     cv::Mat curr_cam_img;
     curr_cam_img = cam_cv_ptr->image;
     std::cout << "the type of the read image is " << curr_cam_img.type() << std::endl;
-    cam_frame::ptr cam_frame_ptr = cam_frame_ptr->create_frame();
-    std::cout << "id of the left color cam_frame ptr is " << cam_frame_ptr->id_ << std::endl;
-    cam_frame_ptr->time_stamp_ = cam_img_msg_ptr->header.stamp.toSec();
-    cam_frame_ptr->image_ = curr_cam_img;
 
 }
 
