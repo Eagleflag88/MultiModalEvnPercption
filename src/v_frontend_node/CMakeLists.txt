@@ -161,7 +161,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(v_frontend_node
         src/v_frontend_node.cpp
-        src/cam_frame.cpp)
+        src/cam_frame.cpp
+        src/object_det.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -176,6 +177,7 @@ add_executable(v_frontend_node
 ## Specify libraries to link a library or executable target against
 target_link_libraries(v_frontend_node
         ${CUDA_LIBRARIES}
+        /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/libdarknet.so
         ${catkin_LIBRARIES}
         )
 
