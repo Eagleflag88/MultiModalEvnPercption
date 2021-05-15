@@ -41,3 +41,6 @@ git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
 ./build.sh
 ```
 # Launch and Run
+
+# Software Architecture
+

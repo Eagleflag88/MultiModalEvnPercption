@@ -42,6 +42,10 @@ public:
     std::vector<std::string> objects_names_from_file(std::string const filename);
     void bboxes_to_objects(const std::vector<bbox_t>& bboxes_2d, std::vector<object_det::ptr>& new_objects);
     void detect_yolo_dark(std::vector<object_det::ptr>& new_objects);
+    void detect_yolo_opencv(std::vector<object_det::ptr>& new_objects);
+    void detect_ssd(std::vector<object_det::ptr>& new_objects);
+    size_t getSizeByDim(const nvinfer1::Dims& dims);
+    void detect_yolo_trt(std::vector<object_det::ptr>& new_objects);
 
 private:
     const std::string tensorflowConfigFile = "/home/eagleflag/Documents/AutoMirroAdjustment/models/opencv_face_detector.pbtxt";

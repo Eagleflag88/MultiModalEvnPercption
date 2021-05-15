@@ -32,6 +32,14 @@ static void IMG_Callback(const sensor_msgs::ImageConstPtr& cam_img_msg_ptr)
     std::cout << "Number of column is " << cam_cv_ptr->image.cols << std::endl;
     cv::Mat curr_cam_img;
     curr_cam_img = cam_cv_ptr->image;
+
+    cam_frame::ptr frame_ptr = frame_ptr->create_frame();
+    std::cout << "id of the camera frame ptr is " << frame_ptr->id_ << std::endl;
+    frame_ptr->time_stamp_ = cam_img_msg_ptr->header.stamp.toSec();
+    frame_ptr->image_ = curr_cam_img;
+    std::vector<object_det::ptr> new_objects;
+    frame_ptr->detect_yolo_dark(new_objects);
+//    frame_ptr->detect_yolo_trt(new_objects);
     std::cout << "the type of the read image is " << curr_cam_img.type() << std::endl;
 
 }

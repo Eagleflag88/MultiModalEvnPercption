@@ -72,6 +72,11 @@ void lidar_frame::filter()
     std::cout << "Point Cloud after Outlier Removal contains " << scan_->width << std::endl;
 }
 
+void lidar_frame::loam_feature()
+{
+
+}
+
 void lidar_frame::pub_odom(ros::Publisher odom_pub)
 {
     std::cout << "Publishing the odom "<< std::endl;

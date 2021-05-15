@@ -178,6 +178,8 @@ add_executable(v_frontend_node
 target_link_libraries(v_frontend_node
         ${CUDA_LIBRARIES}
         /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/libdarknet.so
+        ${TENSORRT_INFER}
+        ${TENSORRT_INFER_PLUGIN}
         ${catkin_LIBRARIES}
         )
 

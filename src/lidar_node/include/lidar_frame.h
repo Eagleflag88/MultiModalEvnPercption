@@ -41,6 +41,7 @@ public:
     ~lidar_frame();
     ptr create_frame();
     void filter();
+    void loam_feature();
     void pub_odom(ros::Publisher odom_pub);
 
 };
