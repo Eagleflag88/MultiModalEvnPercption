@@ -142,7 +142,7 @@ include_directories(
         ${TENSORRT_INCLUDE_DIR}
         ${CUDA_INCLUDE_DIRS}
         /work/tools/MultiModalEvnPercption/src/common/include
-        /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/include
+        /work/tools/MultiModalEvnPercption/src/thirdparty/darknet/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -177,7 +177,7 @@ add_executable(v_frontend_node
 ## Specify libraries to link a library or executable target against
 target_link_libraries(v_frontend_node
         ${CUDA_LIBRARIES}
-        /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/libdarknet.so
+        /work/tools/MultiModalEvnPercption/src/thirdparty/darknet/libdarknet.so
         ${TENSORRT_INFER}
         ${TENSORRT_INFER_PLUGIN}
         ${catkin_LIBRARIES}

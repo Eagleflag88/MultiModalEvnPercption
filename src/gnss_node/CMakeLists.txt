@@ -126,7 +126,7 @@ catkin_package(
 include_directories(
         include
         /work/tools/MultiModalEvnPercption/src/gnss_node/include
-        /work/tools/MultiModalEvnPercption/src/gnss_node/thirdparty/GeographicLib/include
+        /work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -160,7 +160,7 @@ include_directories(
 ## Specify libraries to link a library or executable target against
  target_link_libraries(gnss_node
    ${catkin_LIBRARIES}
-   /work/tools/MultiModalEvnPercption/src/gnss_node/thirdparty/GeographicLib/build/liblibGeographiccc.a
+   /work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/build/liblibGeographiccc.a
  )
 
 #############
