@@ -21,6 +21,8 @@
 #include <pcl/registration/ndt.h>
 #include <pcl_conversions/pcl_conversions.h>
 
+typedef pcl::PointXYZI PointType;
+
 class lidar_frame
 {
 public:
@@ -29,6 +31,10 @@ public:
     double time_stamp_;
     Eigen::Isometry3d T_cw_;
     pcl::PointCloud<pcl::PointXYZ>::Ptr scan_;
+    float cloudCurvature[400000];
+    int cloudSortInd[400000];
+    int cloudNeighborPicked[400000];
+    int cloudLabel[400000];
 
 public:
     lidar_frame();
@@ -43,6 +49,11 @@ public:
     void filter();
     void loam_feature();
     void pub_odom(ros::Publisher odom_pub);
+
+private:
+    const double MINIMUM_RANGE = 0.1;
+    int N_SCANS = 16;
+    const double scanPeriod = 0.1;
 
 };
 

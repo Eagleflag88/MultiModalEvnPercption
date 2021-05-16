@@ -37,6 +37,7 @@ static void PointCloud_Callback(const sensor_msgs::PointCloud2 curr_scan_msg)
     lidar_frame::ptr lidar_frame_ptr = lidar_frame_ptr->create_frame();
     lidar_frame_ptr->scan_ = scan_cloud_ptr;
     lidar_frame_ptr->filter();
+    lidar_frame_ptr->loam_feature();
 
     std::cout << "id of the cloud point frame ptr is " << lidar_frame_ptr->id_ << std::endl;
 
