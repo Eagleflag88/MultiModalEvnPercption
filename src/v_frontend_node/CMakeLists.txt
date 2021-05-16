@@ -141,7 +141,7 @@ include_directories(
         include
         ${TENSORRT_INCLUDE_DIR}
         ${CUDA_INCLUDE_DIRS}
-        /work/tools/MultiModalEvnPercption/src/v_frontend_node/include
+        /work/tools/MultiModalEvnPercption/src/common/include
         /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/include
         ${catkin_INCLUDE_DIRS}
 )
@@ -161,8 +161,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(v_frontend_node
         src/v_frontend_node.cpp
-        src/cam_frame.cpp
-        src/object_det.cpp)
+        /work/tools/MultiModalEvnPercption/src/common/src/cam_frame.cpp
+        /work/tools/MultiModalEvnPercption/src/common/src/object_det.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
