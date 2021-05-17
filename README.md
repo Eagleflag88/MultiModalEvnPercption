@@ -44,3 +44,6 @@ git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
 
 # Software Architecture
 
+![Software Architecture](https://github.com/Eagleflag88/MultiModalEvnPercption/blob/main/SoftwareArch.png)
+
+
