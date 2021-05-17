@@ -20,24 +20,6 @@ find_package(catkin REQUIRED COMPONENTS
         message_generation
         )
 
-find_package(CUDA REQUIRED)
-
-## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
-
-set(TENSORRT_ROOT /work/tools/tensorrt/TensorRT-7.1.3.4)
-find_path(TENSORRT_INCLUDE_DIR NvInfer.h
-        HINTS ${TENSORRT_ROOT}
-        PATH_SUFFIXES include)
-
-find_library(TENSORRT_INFER libnvinfer.so
-        HINTS ${TENSORRT_ROOT}
-        PATH_SUFFIXES lib lib64 lib/x64)
-find_library(TENSORRT_INFER_PLUGIN libnvinfer_plugin.so
-        HINTS ${TENSORRT_ROOT}
-        PATH_SUFFIXES lib lib64 lib/x64)
-
-#include_directories(/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/include)
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
@@ -139,9 +121,6 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
         include
-        ${TENSORRT_INCLUDE_DIR}
-        ${CUDA_INCLUDE_DIRS}
-        /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/darknet/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -173,7 +152,6 @@ add_executable(cam_node
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(cam_node
-        ${CUDA_LIBRARIES}
         ${catkin_LIBRARIES}
         )
 

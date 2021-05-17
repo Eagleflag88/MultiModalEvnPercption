@@ -128,7 +128,7 @@ catkin_package(
         INCLUDE_DIRS include
         LIBRARIES v_frontend_node
         CATKIN_DEPENDS cv_bridge nav_msgs pcl_conversions pcl_ros roscpp rospy std_msgs tf message_runtime
-        DEPENDS system_lib
+#        DEPENDS system_lib
 )
 
 ###########
@@ -141,8 +141,8 @@ include_directories(
         include
         ${TENSORRT_INCLUDE_DIR}
         ${CUDA_INCLUDE_DIRS}
-        /work/tools/MultiModalEvnPercption/src/common/include
-        /work/tools/MultiModalEvnPercption/src/thirdparty/darknet/include
+        ${CMAKE_SOURCE_DIR}/common/include
+        ${CMAKE_SOURCE_DIR}/thirdparty/darknet/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -160,9 +160,9 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(v_frontend_node
-        src/v_frontend_node.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/cam_frame.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/object_det.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/v_frontend_node.cpp
+        ${CMAKE_SOURCE_DIR}/common/src/cam_frame.cpp
+        ${CMAKE_SOURCE_DIR}/common/src/object_det.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -177,7 +177,7 @@ add_executable(v_frontend_node
 ## Specify libraries to link a library or executable target against
 target_link_libraries(v_frontend_node
         ${CUDA_LIBRARIES}
-        /work/tools/MultiModalEvnPercption/src/thirdparty/darknet/libdarknet.so
+        ${CMAKE_SOURCE_DIR}/thirdparty/darknet/libdarknet.so
         ${TENSORRT_INFER}
         ${TENSORRT_INFER_PLUGIN}
         ${catkin_LIBRARIES}

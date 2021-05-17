@@ -124,8 +124,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-        /work/tools/MultiModalEvnPercption/src/common/include
-        /work/tools/MultiModalEvnPercption/src/preintegration_node/include
+        ${CMAKE_SOURCE_DIR}/common/include
+        ${CMAKE_SOURCE_DIR}/preintegration_node/include
         ${CERES_INCLUDE_DIRS}
         ${catkin_INCLUDE_DIRS}
 )
@@ -146,8 +146,8 @@ include_directories(
 add_executable(preintegration_node
         src/preintegration_node.cpp
         src/parameters.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/imu_frame.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/utility.cpp)
+        ${CMAKE_SOURCE_DIR}/common/src/imu_frame.cpp
+        ${CMAKE_SOURCE_DIR}/common/src/utility.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

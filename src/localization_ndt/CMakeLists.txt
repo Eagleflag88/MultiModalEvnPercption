@@ -47,9 +47,9 @@ find_library(TENSORRT_INFER_PLUGIN libnvinfer_plugin.so
         PATH_SUFFIXES lib lib64 lib/x64)
 
 ################################################################################
-set(G2O_LIBRARY_DIR  "/work/tools/MultiModalEvnPercption/src/thirdparty/g2o/lib/" )
-set(omp_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/ndt_omp/include")
-set(ndt_gpu_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/include")
+set(G2O_LIBRARY_DIR  "${CMAKE_SOURCE_DIR}/thirdparty/g2o/lib/" )
+set(omp_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ndt_omp/include")
+set(ndt_gpu_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ndt_gpu/include")
 
 find_package(CSparse REQUIRED)
 
@@ -63,9 +63,9 @@ if(OPENMP_FOUND)
 endif()
 
 
-include_directories(/work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/include/)
-include_directories(/work/tools/MultiModalEvnPercption/src/thirdparty/darknet/include)
-include_directories(/work/tools/MultiModalEvnPercption/src/ndt_gpu/include)
+include_directories(${CMAKE_SOURCE_DIR}/thirdparty/GeographicLib/include/)
+include_directories(${CMAKE_SOURCE_DIR}/thirdparty/darknet/include)
+include_directories(${CMAKE_SOURCE_DIR}/ndt_gpu/include)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -182,10 +182,9 @@ include_directories(
         ${CUDA_INCLUDE_DIRS}
         ${omp_INCLUDE_DIR}
         ${ndt_gpu_INCLUDE_DIR}
-        /work/tools/MultiModalEvnPercption/src/localization_ndt
-        /work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/include/
-        /work/tools/MultiModalEvnPercption/src/localization_ndt/include/localization_ndt/
-        /work/tools/MultiModalEvnPercption/src/localization_ndt/include/cube_slam/
+        ${CMAKE_SOURCE_DIR}/localization_ndt
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/localization_ndt/
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/cube_slam/
 )
 
 
@@ -240,23 +239,24 @@ add_dependencies(${PROJECT_NAME}_node
          ${CSPARSE_LIBRARY}
          ${CERES_LIBRARIES}
          ndt_omp
-         /work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/build/liblibGeographiccc.a
+         ${CMAKE_SOURCE_DIR}/thirdparty/GeographicLib/build/liblibGeographiccc.a
          ${G2O_LIBRARY_DIR}/libg2o_core.so
          ${G2O_LIBRARY_DIR}/libg2o_stuff.so
          ${G2O_LIBRARY_DIR}/libg2o_types_sba.so
          ${G2O_LIBRARY_DIR}/libg2o_csparse_extension.so
-         /work/opencv/build/lib/libopencv_core.so
-         /work/opencv/build/lib/libopencv_imgproc.so
-         /work/opencv/build/lib/libopencv_calib3d.so
-         /work/opencv/build/lib/libopencv_dnn.so
-         /work/opencv/build/lib/libopencv_features2d.so
-         /work/opencv/build/lib/libopencv_video.so
-         /work/opencv/build/lib/libopencv_imgcodecs.so
-         /work/tools/MultiModalEvnPercption/src/thirdparty/darknet/libdarknet.so
+         ${OpenCV_LIB_DIRS}/libopencv_core.so
+         ${OpenCV_LIB_DIRS}/libopencv_imgproc.so
+         ${OpenCV_LIB_DIRS}/libopencv_calib3d.so
+         ${OpenCV_LIB_DIRS}/libopencv_dnn.so
+         ${OpenCV_LIB_DIRS}/libopencv_features2d.so
+         ${OpenCV_LIB_DIRS}/libopencv_video.so
+         ${OpenCV_LIB_DIRS}/libopencv_imgcodecs.so
+#         ${OpenCV_LIBS}
+         ${CMAKE_SOURCE_DIR}/thirdparty/darknet/libdarknet.so
          ${TENSORRT_INFER}
          ${TENSORRT_INFER_PLUGIN}
          ${CUDA_LIBRARIES}
-         /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/build/libfast_pcl_ndt_gpu.so
+         ${CMAKE_SOURCE_DIR}/localization_ndt/Thirdparty/ndt_gpu/build/libfast_pcl_ndt_gpu.so
  )
 
 #add_executable(talker_test_node src/talker.cpp)

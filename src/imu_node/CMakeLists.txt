@@ -124,7 +124,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
         include
-        /work/tools/MultiModalEvnPercption/src/common/include
+        ${CMAKE_SOURCE_DIR}/common/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -142,8 +142,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(imu_node
-        src/imu_node.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/imu_frame.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/imu_node.cpp
+        ${CMAKE_SOURCE_DIR}/common/src/imu_frame.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

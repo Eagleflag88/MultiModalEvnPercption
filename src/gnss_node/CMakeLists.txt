@@ -19,6 +19,9 @@ find_package(catkin REQUIRED COMPONENTS
         message_generation
         )
 
+message("CMAKE_SOURCE_DIR is " ${CMAKE_SOURCE_DIR})
+message("CMAKE_CURRENT_SOURCE_DIR is " ${CMAKE_CURRENT_SOURCE_DIR})
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -125,8 +128,8 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
         include
-        /work/tools/MultiModalEvnPercption/src/gnss_node/include
-        /work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/include
+        ${CMAKE_SOURCE_DIR}/gnss_node/include
+        ${CMAKE_SOURCE_DIR}/thirdparty/GeographicLib/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -144,8 +147,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
  add_executable(gnss_node
-         src/gnss_node.cpp
-         src/gnss_frame.cpp)
+         ${CMAKE_CURRENT_SOURCE_DIR}/src/gnss_node.cpp
+         ${CMAKE_CURRENT_SOURCE_DIR}/src/gnss_frame.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -159,8 +162,8 @@ include_directories(
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(gnss_node
-   ${catkin_LIBRARIES}
-   /work/tools/MultiModalEvnPercption/src/thirdparty/GeographicLib/build/liblibGeographiccc.a
+         ${CMAKE_SOURCE_DIR}/thirdparty/GeographicLib/build/liblibGeographiccc.a
+         ${catkin_LIBRARIES}
  )
 
 #############

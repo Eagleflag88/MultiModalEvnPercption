@@ -12,8 +12,6 @@
 #include <image_transport/image_transport.h>
 
 
-//#include "cam_frame.h"
-
 // Declaration of Publishers
 
 static ros::Publisher image_pub;

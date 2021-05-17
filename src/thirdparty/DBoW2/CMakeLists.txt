@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(DBoW2)
 
 #set (dbow2_ROOR_DIR "${PROJECT_SOURCE_DIR}/orb_slam2/Thirdparty/DBoW2")
-set (dbow2_ROOR_DIR "/work/tools/MultiModalEvnPercption/src/thirdparty/DBoW2")
+set (dbow2_ROOR_DIR "${CMAKE_SOURCE_DIR}/thirdparty/DBoW2")
 
 
 set(HDRS_DBOW2

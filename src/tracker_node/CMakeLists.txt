@@ -124,8 +124,8 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
         include
-        /work/tools/MultiModalEvnPercption/src/common/include
-        /work/tools/MultiModalEvnPercption/src/tracker_node/include
+        ${CMAKE_SOURCE_DIR}/common/include
+        ${CMAKE_SOURCE_DIR}/tracker_node/include
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -146,7 +146,7 @@ add_executable(tracker_node
         src/tracker_node.cpp
         src/tracker.cpp
         src/Hungarian.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/object_det.cpp)
+        ${CMAKE_SOURCE_DIR}/common/src/object_det.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
