@@ -146,8 +146,8 @@ include_directories(
 add_executable(preintegration_node
         src/preintegration_node.cpp
         src/parameters.cpp
-        src/utility.cpp
-        /work/tools/MultiModalEvnPercption/src/common/src/imu_frame.cpp)
+        /work/tools/MultiModalEvnPercption/src/common/src/imu_frame.cpp
+        /work/tools/MultiModalEvnPercption/src/common/src/utility.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
