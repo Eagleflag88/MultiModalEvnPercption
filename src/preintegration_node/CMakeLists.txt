@@ -19,6 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
         message_generation
         )
 
+find_package(Ceres REQUIRED)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -123,6 +125,8 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
         /work/tools/MultiModalEvnPercption/src/common/include
+        /work/tools/MultiModalEvnPercption/src/preintegration_node/include
+        ${CERES_INCLUDE_DIRS}
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -141,6 +145,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(preintegration_node
         src/preintegration_node.cpp
+        src/parameters.cpp
+        src/utility.cpp
         /work/tools/MultiModalEvnPercption/src/common/src/imu_frame.cpp)
 
 ## Rename C++ executable without prefix
@@ -155,7 +161,8 @@ add_executable(preintegration_node
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(preintegration_node
-   ${catkin_LIBRARIES}
+         ${CERES_LIBRARIES}
+         ${catkin_LIBRARIES}
  )
 
 #############

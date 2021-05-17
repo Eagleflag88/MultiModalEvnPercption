@@ -53,7 +53,7 @@ set(ndt_gpu_INCLUDE_DIR "/work/tools/MultiModalEvnPercption/src/localization_ndt
 
 find_package(CSparse REQUIRED)
 
-find_package( Ceres REQUIRED )
+find_package(Ceres REQUIRED)
 
 find_package(OpenMP REQUIRED)
 if(OPENMP_FOUND)
@@ -259,11 +259,11 @@ add_dependencies(${PROJECT_NAME}_node
          /work/tools/MultiModalEvnPercption/src/localization_ndt/Thirdparty/ndt_gpu/build/libfast_pcl_ndt_gpu.so
  )
 
-add_executable(talker_test_node src/talker.cpp)
-
-target_link_libraries(talker_test_node
-        ${catkin_LIBRARIES}
-        )
+#add_executable(talker_test_node src/talker.cpp)
+#
+#target_link_libraries(talker_test_node
+#        ${catkin_LIBRARIES}
+#        )
 
 message("opencv include is " ${OpenCV_INCLUDE_DIRS})
 message("opencv library directory is " ${OpenCV_LIB_DIRS})
