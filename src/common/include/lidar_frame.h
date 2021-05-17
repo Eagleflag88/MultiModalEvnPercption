@@ -21,6 +21,7 @@
 #include <pcl/registration/ndt.h>
 #include <pcl_conversions/pcl_conversions.h>
 
+
 typedef pcl::PointXYZI PointType;
 
 class lidar_frame

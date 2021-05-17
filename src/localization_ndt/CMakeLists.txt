@@ -251,7 +251,6 @@ add_dependencies(${PROJECT_NAME}_node
          ${OpenCV_LIB_DIRS}/libopencv_features2d.so
          ${OpenCV_LIB_DIRS}/libopencv_video.so
          ${OpenCV_LIB_DIRS}/libopencv_imgcodecs.so
-#         ${OpenCV_LIBS}
          ${CMAKE_SOURCE_DIR}/thirdparty/darknet/libdarknet.so
          ${TENSORRT_INFER}
          ${TENSORRT_INFER_PLUGIN}
