@@ -31,14 +31,19 @@ public:
     unsigned long id_;
     double time_stamp_;
     cv::Mat image_;
+    std::vector<cv::KeyPoint> keypoints_;
+    cv::Mat descriptors_;
 
 public:
     cam_frame();
     cam_frame(unsigned long id,
           double time_stamp = 0.0,
-          cv::Mat image = cv::Mat()); //constructor with default input, only id is not specified
+          cv::Mat image = cv::Mat(),
+          std::vector<cv::KeyPoint> keypoints = {},
+          cv::Mat descriptors = {}); //constructor with default input, only id is not specified
     ~cam_frame();
     ptr create_frame();
+    void detect_feature();
     std::vector<std::string> objects_names_from_file(std::string const filename);
     void bboxes_to_objects(const std::vector<bbox_t>& bboxes_2d, std::vector<object_det::ptr>& new_objects);
     void detect_yolo_dark(std::vector<object_det::ptr>& new_objects);

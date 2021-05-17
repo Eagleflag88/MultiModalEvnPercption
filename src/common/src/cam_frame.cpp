@@ -35,11 +35,15 @@ cam_frame::cam_frame()
 cam_frame::cam_frame(
         unsigned long id,
         double time_stamp,
-        cv::Mat image
+        cv::Mat image,
+        std::vector<cv::KeyPoint> keypoints,
+        cv::Mat descriptors
 ):
         id_(id),
         time_stamp_(time_stamp),
-        image_(image)// Implementation of the constructor
+        image_(image),
+        keypoints_(keypoints),
+        descriptors_(descriptors)// Implementation of the constructor
 {
     std::cout << "camera frame with id " << id_ << " is constructed" << std::endl;
 }
@@ -53,8 +57,6 @@ cam_frame::ptr cam_frame::create_frame()
     static unsigned long cam_frame_id = 0;
     return cam_frame::ptr( new cam_frame(cam_frame_id++) ); // ptr here is the shared pointer defined with typedef
 }
-
-
 
 void cam_frame::bboxes_to_objects(const std::vector<bbox_t>& bboxes_2d, std::vector<object_det::ptr>& new_objects)
 {
@@ -386,4 +388,20 @@ void cam_frame::detect_yolo_trt(std::vector<object_det::ptr>& new_objects)
     engine->destroy();
 
     std::cout << "Detection by YOLO TensorR Finished" << std::endl;
+}
+
+void cam_frame::detect_feature()
+{
+    //-- 初始化
+    cv::Mat descriptors_;
+    // used in OpenCV3
+    cv::Ptr<cv::FeatureDetector> detector = cv::ORB::create();
+    cv::Ptr<cv::DescriptorExtractor> descriptor = cv::ORB::create();
+
+    //-- 第一步:检测 Oriented FAST 角点位置
+    std::vector<cv::KeyPoint> keypoints;
+    detector->detect (image_, keypoints_);
+
+    //-- 第二步:根据角点位置计算 BRIEF 描述子
+    descriptor->compute (image_, keypoints_, descriptors_);
 }
