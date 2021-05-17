@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(imu_node)
+project(preintegration_node)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -74,11 +74,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-#generate_messages(
-#        DEPENDENCIES
-#        nav_msgs
-#        std_msgs  # Or other packages containing msgs
-#)
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -111,7 +110,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES imu_node
+        LIBRARIES preintegration_node
         CATKIN_DEPENDS cv_bridge nav_msgs pcl_conversions pcl_ros roscpp rospy std_msgs tf message_runtime
         DEPENDS system_lib
 )
@@ -123,14 +122,13 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-        include
         /work/tools/MultiModalEvnPercption/src/common/include
         ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/imu_node.cpp
+#   src/${PROJECT_NAME}/preintegration_node.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -141,8 +139,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(imu_node
-        src/imu_node.cpp
+add_executable(preintegration_node
+        src/preintegration_node.cpp
         /work/tools/MultiModalEvnPercption/src/common/src/imu_frame.cpp)
 
 ## Rename C++ executable without prefix
@@ -156,9 +154,9 @@ add_executable(imu_node
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(imu_node
-        ${catkin_LIBRARIES}
-        )
+ target_link_libraries(preintegration_node
+   ${catkin_LIBRARIES}
+ )
 
 #############
 ## Install ##
@@ -207,7 +205,7 @@ target_link_libraries(imu_node
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_imu_node.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_preintegration_node.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

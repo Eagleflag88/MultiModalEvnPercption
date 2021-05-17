@@ -30,7 +30,7 @@ sudo apt install libeigen3-dev
 g2o: Comes with the Repo, github commit a48ff8c\
 Geographic_Lib: A library dealing with Comes with the Repo
 
-# Building the ROS Package
+# Building
 
 ## Clone the Repo
 ```
