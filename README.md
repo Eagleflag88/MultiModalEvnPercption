@@ -56,7 +56,7 @@ Responsible for preprocessing of the measurements, such as filtering and undisto
 While the frontend focuses on the real-time performance, the nodes of the backend try to fuse the initial guesses from frontend to obtain more accurate estimate of the ego poses and landmarks. At first, a sliding window is maintained to constrain the computational burden and complexity. Within the sliding window, maximum-a-posteriori estimates are calculated based on the inference of a factor graph. Alternatively, an EKF can be applied to the sliding window.
 
 
-//![Software Architecture](https://github.com/Eagleflag88/MultiModalEvnPercption/blob/main/SoftwareArch.png)
+![Software Architecture](https://github.com/Eagleflag88/MultiModalEvnPercption/blob/main/SoftwareArch.jpg)
 
 
 
