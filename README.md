@@ -1,8 +1,9 @@
 # MultiModalEvnPercption
 
-A ROS-Based Experimental Software Platform For Multi-Modal Simultaneous Localization And Mapping
+A ROS-based experimental software platform for Multi-Modal Simultaneous Localization And Mapping.
 
-For the purpose of studying and research in the field of SLAM, based on the infrastructure of ROS, this Repo provide a software platform 
+For the purpose of studying and research in the field of SLAM, based on the infrastructure of ROS, this repo provide a software platform which is highly 
+modularized and is able to fuse the information from a number of different modalities to achieve to an accurate and consistent environmental understanding. 
 
 # Software Architecture
 
@@ -56,13 +57,13 @@ git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
 ```
 ./build.sh
 ```
-# Launch and Run
-
 
 # Todo
 
-1. Implement the keyframe_node, factor_graph_node and ekf_node
+1. Implement the keyframe_node, factor_graph_node and ekf_node.
 2. Create launch files for different functional modes, for example, camera_only, lidar_only, binocular camera, visual inertial application, etc.
+3. Add the node for place recognition into the software architecture.
+4. Add the HD-Map as a further source of information.
 
 
 
