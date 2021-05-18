@@ -7,7 +7,9 @@ modularized and is able to fuse the information from a number of different modal
 
 # Software Architecture
 
-The whole package of software consists of three layers
+The whole package of software consists of three layers, as depicted in following picture:
+
+![Software Architecture](https://github.com/Eagleflag88/MultiModalEvnPercption/blob/main/SoftwareArch.jpg)
 
 ## Sensors
 Modeling of the sensor driver, which acts as the source of sensor measurements. In the case of simulation, these nodes take the playback of the rosbag or other compliant data format.
@@ -18,8 +20,6 @@ Responsible for preprocessing of the measurements, such as filtering and undisto
 ## Backend 
 While the frontend focuses on the real-time performance, the nodes of the backend try to fuse the initial guesses from frontend to obtain more accurate estimate of the ego poses and landmarks. At first, a sliding window is maintained to constrain the computational burden and complexity. Within the sliding window, maximum-a-posteriori estimates are calculated based on the inference of a factor graph. Alternatively, an EKF can be applied to the sliding window.
 
-
-![Software Architecture](https://github.com/Eagleflag88/MultiModalEvnPercption/blob/main/SoftwareArch.jpg)
 
 # Dependencies
 
@@ -64,6 +64,7 @@ git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
 2. Create launch files for different functional modes, for example, camera_only, lidar_only, binocular camera, visual inertial application, etc.
 3. Add the node for place recognition into the software architecture.
 4. Add the HD-Map as a further source of information.
+5. Add semantic pipeline
 
 
 
