@@ -12,21 +12,29 @@ The whole package of software consists of three layers, as depicted in following
 ![Software Architecture](https://github.com/Eagleflag88/MultiModalEvnPercption/blob/main/SoftwareArch.jpg)
 
 ## Sensors
-Modeling of the sensor driver, which acts as the source of sensor measurements. In the case of simulation, these nodes take the playback of the rosbag or other compliant data format.
+Modeling of the sensor driver, which acts as the source of sensor measurements. In the case of simulation, 
+these nodes take the playback of rosbag or other compliant data format.
 
 ## Frontend
-Responsible for preprocessing of the measurements, such as filtering and undistortion, feature extraction and motion estimation. Meanwhile, objection detection based on deep learning is implemented for object-level environmental understanding. In addition, a tracker node is exploited to take care of data association, both in object-level and feature-level.
+Responsible for preprocessing of the measurements, such as filtering and undistortion. 
+As next steps, feature extraction and motion estimation are implemented. 
+Meanwhile, objection detection based on deep learning is implemented for object-level environmental understanding. 
+In addition, a tracker node is exploited to take care of data association, in feature and object-level.
 
 ## Backend 
-While the frontend focuses on the real-time performance, the nodes of the backend try to fuse the initial guesses from frontend to obtain more accurate estimate of the ego poses and landmarks. At first, a sliding window is maintained to constrain the computational burden and complexity. Within the sliding window, maximum-a-posteriori estimates are calculated based on the inference of a factor graph. Alternatively, an EKF can be applied to the sliding window.
+While the frontend focuses on the real-time performance, the nodes of the backend try to fuse the initial guesses 
+from frontend to obtain more accurate estimate of the ego poses and landmarks. 
+To this end, a sliding window is maintained to constrain the computational burden and complexity. 
+Within the sliding window, maximum-a-posteriori estimates are calculated based on the inference of a factor graph. 
+Alternatively, an EKF can be applied.
 
 
 # Dependencies
 
 ## Basic Software Environment
-Ubuntu 20.04 \
-ROS1 Noetic\
-OpenCV/Opencv_Contrib: 4.4.0 (For Compatibility with Cuda 11), Consult the Installation Instruction\
+OS: Ubuntu 20.04 \
+ROS: Noetic\
+OpenCV & Opencv_Contrib: 4.4.0 (For Compatibility with Cuda 11), Consult the Installation Instruction\
 OpenMP:
 ```
 sudo apt install libomp-dev    
@@ -39,13 +47,13 @@ TensorRT: Consult the Installation Instruction\
 Darknet For Yolo: Consult the Installation Instruction
 
 ## SLAM Related
-Ceres: Consult the Installation Instruction; SuiteSparse and CXSparse included \
+Ceres: Consult the Installation Instruction; SuiteSparse and CXSparse are included \
 Eigen 3:
 ```
 sudo apt install libeigen3-dev
 ```
-g2o: Comes with the Repo, github commit a48ff8c\
-Geographic_Lib: A library dealing with Comes with the Repo
+g2o: Comes with the repo, github commit a48ff8c\
+Geographic_Lib: A library dealing with geographic coordinate conversion, comes with the repo
 
 # Building
 
