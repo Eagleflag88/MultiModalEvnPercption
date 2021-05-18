@@ -69,7 +69,7 @@ git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
 # Todo
 
 1. Implement the keyframe_node, factor_graph_node and ekf_node.
-2. Create launch files for different functional modes, for example, camera_only, lidar_only, binocular camera, visual inertial application, etc.
+2. Create launch files for different functional modes, for example, camera_only, lidar_only, visual inertial, etc.
 3. Add the node for place recognition into the software architecture.
 4. Add the HD-Map as a further source of information.
 5. Add semantic pipeline
