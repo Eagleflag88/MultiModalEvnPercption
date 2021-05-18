@@ -110,10 +110,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-        INCLUDE_DIRS include
+#        INCLUDE_DIRS include
         LIBRARIES lidar_node
         CATKIN_DEPENDS cv_bridge nav_msgs pcl_conversions pcl_ros roscpp rospy std_msgs tf message_runtime
-        DEPENDS system_lib
+#        DEPENDS system_lib
 )
 
 ###########
