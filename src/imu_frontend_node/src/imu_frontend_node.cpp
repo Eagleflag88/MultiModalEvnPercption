@@ -141,7 +141,7 @@ static void IMU_Callback(const sensor_msgs::ImuConstPtr& imu_msg_ptr)
 int main(int argc, char **argv)
 {
 
-    ros::init(argc, argv, "preintegration_node");
+    ros::init(argc, argv, "imu_frontend_node");
     ros::NodeHandle nh;
     // Register the Subscriber
 
@@ -153,7 +153,7 @@ int main(int argc, char **argv)
     while(ros::ok())
     {
         std::stringstream status_msg;
-        status_msg << "preintegration_node working fine " << count;
+        status_msg << "imu_frontend_node working fine " << count;
         msg.data = status_msg.str();
         ROS_INFO("%s", msg.data.c_str());
         chatter_pub.publish(msg);
