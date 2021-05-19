@@ -68,6 +68,7 @@ git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git
 
 # Todo
 
+0. Refactor the codebase.
 1. Implement the keyframe_node, factor_graph_node and ekf_node.
 2. Create launch files for different functional modes, for example, camera_only, lidar_only, visual inertial, etc.
 3. Add the node for place recognition into the software architecture.
