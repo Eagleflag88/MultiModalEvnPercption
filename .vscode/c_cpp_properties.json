@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/work/tools/MultiModalEvnPercption/src/gnss_node/include/**",
+                "/work/tools/MultiModalEvnPercption/src/imu_frontend_node/include/**",
+                "/work/tools/MultiModalEvnPercption/src/lidar_frontend_node/include/**",
+                "/work/tools/MultiModalEvnPercption/src/localization_ndt/include/**",
+                "/work/tools/MultiModalEvnPercption/src/ndt_omp/include/**",
+                "/work/tools/MultiModalEvnPercption/src/tracker_node/include/**",
+                "/work/tools/MultiModalEvnPercption/src/v_frontend_node/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}

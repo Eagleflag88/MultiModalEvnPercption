@@ -1,0 +1,9 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/work/tools/MultiModalEvnPercption/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/work/tools/CARLA/PythonAPI/carla/dist/carla-0.9.9-py3.7-linux-x86_64.egg",
+        "/work/tools/tvm/python",
+        "/work/tools/tvm/topi/python"
+    ]
+}
