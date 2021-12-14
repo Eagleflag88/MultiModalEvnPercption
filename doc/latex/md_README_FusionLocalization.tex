@@ -1,0 +1,31 @@
+本\+Ros Package包含融合定位算法库和相应的\+Ros Wrapper。\textbackslash{} 其中，融合定位算法库以\+E\+S\+K\+F（\+Error-\/\+State Kalman Filter）为框架，融合组合惯导（\+I\+N\+S）和车道线配准（\+Registration）的结果获得更高的定位精度。\textbackslash{} Ros Wrapper为融合定位模块提供外界通信接口和调度机制（回调函数）。\hypertarget{md_README_FusionLocalization_autotoc_md14}{}\doxysection{Algorithms Design}\label{md_README_FusionLocalization_autotoc_md14}
+\hypertarget{md_README_FusionLocalization_autotoc_md15}{}\doxysection{Software Architecture}\label{md_README_FusionLocalization_autotoc_md15}
+\hypertarget{md_README_FusionLocalization_autotoc_md16}{}\doxysection{Getting Started}\label{md_README_FusionLocalization_autotoc_md16}
+\hypertarget{md_README_FusionLocalization_autotoc_md17}{}\doxysubsection{Basic Software Environment}\label{md_README_FusionLocalization_autotoc_md17}
+OS\+: Ubuntu 18.\+04 \textbackslash{} R\+OS\+: Melodic \textbackslash{} Eigen3 \textbackslash{} Geographic\+\_\+\+Lib\+: A library dealing with geographic coordinate conversion, comes with the repo\hypertarget{md_README_FusionLocalization_autotoc_md18}{}\doxysubsection{Create Ros Workspace}\label{md_README_FusionLocalization_autotoc_md18}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir -\/p \string~/catkin\_ws/src}
+\DoxyCodeLine{cd \string~/catkin\_ws/}
+\DoxyCodeLine{catkin\_make}
+\end{DoxyCode}
+\hypertarget{md_README_FusionLocalization_autotoc_md19}{}\doxysubsection{Build the Ros Package}\label{md_README_FusionLocalization_autotoc_md19}
+\hypertarget{md_README_FusionLocalization_autotoc_md20}{}\doxysubsection{Clone the Repo}\label{md_README_FusionLocalization_autotoc_md20}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws/src}
+\DoxyCodeLine{git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git}
+\end{DoxyCode}
+\hypertarget{md_README_FusionLocalization_autotoc_md21}{}\doxysubsection{Building the Ros Package}\label{md_README_FusionLocalization_autotoc_md21}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws}
+\DoxyCodeLine{catkin\_make}
+\end{DoxyCode}
+\hypertarget{md_README_FusionLocalization_autotoc_md22}{}\doxysubsection{Run}\label{md_README_FusionLocalization_autotoc_md22}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source devel/setup.bash}
+\DoxyCodeLine{roslaunch }
+\end{DoxyCode}
+\hypertarget{md_README_FusionLocalization_autotoc_md23}{}\doxysection{Todo}\label{md_README_FusionLocalization_autotoc_md23}

@@ -1,0 +1,42 @@
+A R\+O\+S-\/based experimental software platform for Multi-\/\+Modal Simultaneous Localization And Mapping.
+
+For the purpose of studying and research in the field of S\+L\+AM, based on the infrastructure of R\+OS, this repo provide a software platform which is highly modularized and is able to fuse the information from a number of different modalities to achieve to an accurate and consistent environmental understanding.\hypertarget{md_README_autotoc_md1}{}\doxysection{Software Architecture}\label{md_README_autotoc_md1}
+The whole package of software consists of three layers, as depicted in following picture\+:
+
+\hypertarget{md_README_autotoc_md2}{}\doxysubsection{Sensors}\label{md_README_autotoc_md2}
+Modeling of the sensor driver, which acts as the source of sensor measurements. In the case of simulation, these nodes take the playback of rosbag or other compliant data format.\hypertarget{md_README_autotoc_md3}{}\doxysubsection{Frontend}\label{md_README_autotoc_md3}
+Responsible for preprocessing of the measurements, such as filtering and undistortion. As next steps, feature extraction and motion estimation are implemented. Meanwhile, objection detection based on deep learning is implemented for object-\/level environmental understanding. In addition, a tracker node is exploited to take care of data association, in feature and object-\/level.\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Backend}\label{md_README_autotoc_md4}
+While the frontend focuses on the real-\/time performance, the nodes of the backend try to fuse the initial guesses from frontend to obtain more accurate estimate of the ego poses and landmarks. To this end, a sliding window is maintained to constrain the computational burden and complexity. Within the sliding window, maximum-\/a-\/posteriori estimates are calculated based on the inference of a factor graph. Alternatively, an E\+KF can be applied.\hypertarget{md_README_autotoc_md5}{}\doxysection{Dependencies}\label{md_README_autotoc_md5}
+\hypertarget{md_README_autotoc_md6}{}\doxysubsection{Basic Software Environment}\label{md_README_autotoc_md6}
+OS\+: Ubuntu 20.\+04 \textbackslash{} R\+OS\+: Noetic\textbackslash{} Open\+CV \& Opencv\+\_\+\+Contrib\+: 4.\+4.\+0 (For Compatibility with Cuda 11), Consult the Installation Instruction\textbackslash{} Open\+MP\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt install libomp-\/dev    }
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md7}{}\doxysubsection{Software for D\+L Based Environment Perception}\label{md_README_autotoc_md7}
+Cuda\+: 11\+: Consult the Installation Instruction\textbackslash{} Cudnn\+: 8\+: Consult the Installation Instruction\textbackslash{} Tensor\+RT\+: Consult the Installation Instruction\textbackslash{} Darknet For Yolo\+: Consult the Installation Instruction\hypertarget{md_README_autotoc_md8}{}\doxysubsection{S\+L\+A\+M Related}\label{md_README_autotoc_md8}
+Ceres\+: Consult the Installation Instruction; Suite\+Sparse and C\+X\+Sparse are included \textbackslash{} Eigen 3\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt install libeigen3-\/dev}
+\end{DoxyCode}
+
+
+g2o\+: Comes with the repo, github commit a48ff8c\textbackslash{} Geographic\+\_\+\+Lib\+: A library dealing with geographic coordinate conversion, comes with the repo\hypertarget{md_README_autotoc_md9}{}\doxysection{Building}\label{md_README_autotoc_md9}
+\hypertarget{md_README_autotoc_md10}{}\doxysubsection{Clone the Repo}\label{md_README_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/Eagleflag88/MultiModalEvnPercption.git}
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md11}{}\doxysubsection{Build the Ros Package}\label{md_README_autotoc_md11}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build.sh}
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md12}{}\doxysection{Todo}\label{md_README_autotoc_md12}
+0. Refactor the codebase.
+\begin{DoxyEnumerate}
+\item Implement the keyframe\+\_\+node, factor\+\_\+graph\+\_\+node and ekf\+\_\+node.
+\item Create launch files for different functional modes, for example, camera\+\_\+only, lidar\+\_\+only, visual inertial, etc.
+\item Add the node for place recognition into the software architecture.
+\item Add the H\+D-\/\+Map as a further source of information.
+\item Add semantic pipeline 
+\end{DoxyEnumerate}
